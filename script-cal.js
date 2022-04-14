@@ -73,5 +73,6 @@ function clean() {
   operator = "";
   type = "number";
   console.log("cleaning...")
+  //AHORA SI CON PERMISOS :V MAX
   
 }
