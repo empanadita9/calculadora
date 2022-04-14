@@ -11,39 +11,19 @@ const listOperator = ["+", "-", "*", "/"];
 
 let listResult = ["123", "-", "673", "*", "2"];
 
-let temp1 = "";
-let temp2 = "";
-let res = "";
-
-let operator = "";
-let type = "number"; //number or operator
+//add max
+let a = 0
+let b = 0
+let op = ""
+let total = 0
 
 function Writting() {
   const value = this.getAttribute("value");
 
   if (lisNumber.find((list) => list == value)) {
-    type = "number";
-    console.log(value);
-    if (operator.length == "") {
-      temp1 += value;
-      temp2 = "";
-    } else {
-      temp2 += value;
-    }
-    if (temp1.length > 0 && temp2.length > 0) {
-      console.log("operation", temp1, operator, temp2);
-      opera(operator);
-    }
+    op != "" ? (b += value, opera(op)) : a += value
   } else if (listOperator.find((list) => list == value)) {
-    console.log(value);
-    if (operator.length == "" && temp1.length > 0) {
-      operator = value;
-    } else {
-      operator = "";
-    }
-    type = "operator";
-  } else if (value == "C") {
-    clean()
+    op = value
   } else {
     console.log("no validado", value);
   }
@@ -51,28 +31,18 @@ function Writting() {
 
 function opera(op) {
   let array = {
-    "+": parseInt(temp1) + parseInt(temp2),
-    "-": parseInt(temp1) - parseInt(temp2),
-    "*": parseInt(temp1) * parseInt(temp2),
-    "/": parseInt(temp1) / parseInt(temp2),
-  };
-
-  let mm = array[op] || 0;
-  console.log(mm);
-  if (type == "operator") {
-    temp1 = mm;
-    temp2 = "";
-    console.log("new operator", type);
+    "+": parseInt(a) + parseInt(b),
+    "-": parseInt(a) - parseInt(b),
   }
+  let mm = array[op]
+  total += mm
+  console.log(total)
+  reset()
+
 }
 
-function clean() {
-  temp1 = "";
-  temp2 = "";
-  res = "";
-  operator = "";
-  type = "number";
-  console.log("cleaning...")
-  //AHORA SI CON PERMISOS :V MAX
-  
+function reset() {
+  a = 0
+  b = 0
+  op = ""
 }
