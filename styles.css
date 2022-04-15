@@ -37,9 +37,8 @@ h2 {
 .led p:nth-child(1){
   font-weight: bold;
   font-size: 20px;
-
+  letter-spacing: 4px;
 }
-
 .led p:nth-child(2) {
   color: var(--Primary);
   font-size: 40px;
