@@ -42,6 +42,9 @@ function opera(op) {
   let array = {
     "+": parseInt(a) + parseInt(b),
     "-": parseInt(a) - parseInt(b),
+    "*": parseInt(a) * parseInt(b),
+    "/": parseInt(a) / parseInt(b),
+    "%": ((parseInt(a) / 100) * parseInt(b)).toFixed(2),
   }
   let mm = array[op]
   total += mm
