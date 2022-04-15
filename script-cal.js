@@ -12,8 +12,8 @@ const listOperator = ["+", "-", "*", "/"];
 let listResult = ["123", "-", "673", "*", "2"];
 
 //add max
-let a = 0
-let b = 0
+let a = ""
+let b = ""
 let op = ""
 let total = 0
 
@@ -21,28 +21,28 @@ function Writting() {
   const value = this.getAttribute("value");
 
   if (lisNumber.find((list) => list == value)) {
-    op != "" ? (b += value, opera(op)) : a += value
+    op != "" && a != "" ? (b += value, opera(op)) : a += value    
   } else if (listOperator.find((list) => list == value)) {
+    a && b && op ? (a = total, reset() ) : ""
     op = value
   } else {
-    console.log("no validado", value);
+    console.log("no validado number or operation", value);
   }
+  console.log(`${a}${op}${b} = ${total}`)
 }
 
 function opera(op) {
+  total = 0
   let array = {
     "+": parseInt(a) + parseInt(b),
     "-": parseInt(a) - parseInt(b),
   }
   let mm = array[op]
   total += mm
-  console.log(total)
-  reset()
-
 }
 
 function reset() {
-  a = 0
-  b = 0
+  b = ""
   op = ""
+  total = 0
 }
